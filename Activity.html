@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity</title>
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="jquery.min.js"></script>
+    <script src="popper.min.js"></script>	
+    <script src="bootstrap.js" ></script>
+    <link rel="stylesheet" type="text/css" href="mystyles.css">
+    <style>
+    </style>
+    <script type="text/javascript">
+    $(window).ready(function() {
+
+    });
+    
+    function resize(id, dimension, action) {
+    const el = document.getElementById(id);
+    const style = window.getComputedStyle(el);
+    let width = parseInt(style.width);
+    let height = parseInt(style.height);
+    const step = 30;
+
+    if (dimension === 'w') {
+      width = action === 'increase' ? width + step : width - step;
+      el.style.width = width + 'px';
+    } else {
+      height = action === 'increase' ? height + step : height - step;
+      el.style.height = height + 'px';
+    }
+  }
+
+</script>
+</head>
+<body class="bg-dark">
+    <div class="container py-5 text-center text-light">
+    <h2>Resizable Cards</h2>
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card resizable-card bg-primary text-white text-center" id="card1">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title">Resize the card</h5>
+            <div class="btn-group d-flex flex-wrap justify-content-center">
+              <button class="btn btn-light btn-sm" onclick="resize('card1', 'w', 'increase')">Width +</button>
+              <button class="btn btn-light btn-sm" onclick="resize('card1', 'w', 'decrease')">Width -</button>
+              <button class="btn btn-light btn-sm" onclick="resize('card1', 'h', 'increase')">Height +</button>
+              <button class="btn btn-light btn-sm" onclick="resize('card1', 'h', 'decrease')">Height -</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card resizable-card bg-success text-white text-center" id="card2">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title">This one too</h5>
+            <div class="btn-group d-flex flex-wrap justify-content-center">
+              <button class="btn btn-light btn-sm" onclick="resize('card2', 'w', 'increase')">Width +</button>
+              <button class="btn btn-light btn-sm" onclick="resize('card2', 'w', 'decrease')">Width -</button>
+              <button class="btn btn-light btn-sm" onclick="resize('card2', 'h', 'increase')">Height +</button>
+              <button class="btn btn-light btn-sm" onclick="resize('card2', 'h', 'decrease')">Height -</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card resizable-card bg-danger text-white text-center" id="card3">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title">And this one</h5>
+            <div class="btn-group d-flex flex-wrap justify-content-center">
+              <button class="btn btn-light btn-sm" onclick="resize('card3', 'w', 'increase')">Width +</button>
+              <button class="btn btn-light btn-sm" onclick="resize('card3', 'w', 'decrease')">Width -</button>
+              <button class="btn btn-light btn-sm" onclick="resize('card3', 'h', 'increase')">Height +</button>
+              <button class="btn btn-light btn-sm" onclick="resize('card3', 'h', 'decrease')">Height -</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
